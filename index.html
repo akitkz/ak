@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АвтоКит — Интернет-магазин автозапчастей</title>
+  <meta name="description" content="Новые автозапчасти. Подбор по VIN и артикулу. Костанай. Доставка по Казахстану.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">+</span>
+        <span class="logo-text">Авто<span>Кит</span></span>
+      </a>
+      <nav class="nav">
+        <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+        <a href="#search" data-i18n="nav_search">Поиск</a>
+        <a href="legal/oferta.html" data-i18n="nav_oferta">Оферта</a>
+        <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch">
+          <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="kk">KZ</button>
+        </div>
+        <button type="button" class="cart-btn" id="cart-toggle" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <a href="https://wa.me/77054529356" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <button type="button" class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+    <a href="#search" data-i18n="nav_search">Поиск</a>
+    <a href="legal/oferta.html" data-i18n="nav_oferta">Оферта</a>
+    <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+    <a href="https://wa.me/77054529356" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-badge" data-i18n="hero_badge">Демо-витрина · тест</div>
+      <h1 data-i18n="hero_title">Интернет-магазин<br>автозапчастей</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Новые запчасти · Подбор по артикулу и VIN · Костанай · Доставка по РК</p>
+      <div class="hero-btns">
+        <a href="#catalog" class="btn btn-primary" data-i18n="hero_catalog">Смотреть каталог</a>
+        <a href="#search" class="btn btn-ghost" data-i18n="hero_search">Поиск по артикулу</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section id="search" class="section search-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="search_title">Поиск запчастей</h2>
+      <p class="section-desc" data-i18n="search_desc">Введите артикул или название. В демо — локальный каталог.</p>
+      <div class="search-box">
+        <input type="search" id="search-input" placeholder="Артикул или название..." autocomplete="off">
+        <button type="button" class="btn btn-primary" id="search-btn" data-i18n="search_btn">Найти</button>
+      </div>
+      <p class="search-hint" data-i18n="search_hint">Позже здесь будет проценка у поставщиков по API (без публикации ключей).</p>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section id="catalog" class="section">
+    <div class="container">
+      <div class="section-header-row">
+        <h2 class="section-title" data-i18n="catalog_title">Каталог</h2>
+        <select id="category-filter" class="select">
+          <option value="all" data-i18n="cat_all">Все категории</option>
+          <option value="filters">Фильтры</option>
+          <option value="brake">Тормозная система</option>
+          <option value="suspension">Подвеска</option>
+          <option value="engine">Двигатель</option>
+          <option value="body">Кузов</option>
+        </select>
+      </div>
+      <div class="products-grid" id="products-grid"></div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section alt">
+    <div class="container">
+      <h2 class="section-title" data-i18n="how_title">Как заказать</h2>
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><p data-i18n="how_1">Найдите деталь в каталоге или по артикулу</p></div>
+        <div class="step"><span class="step-num">2</span><p data-i18n="how_2">Добавьте в корзину</p></div>
+        <div class="step"><span class="step-num">3</span><p data-i18n="how_3">Отправьте заявку в WhatsApp — подтвердим наличие и цену</p></div>
+      </div>
+      <p class="note" data-i18n="how_note">Онлайн-оплата (Kaspi / Halyk) и синхронизация с учётом — на следующем этапе, на отдельном сервере.</p>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="contacts_title">Контакты</h2>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <h3 data-i18n="address_label">Адрес</h3>
+          <p>г. Костанай, ул. Ворошилова, 11А</p>
+          <p class="small">ИП «Воронцов Д. С.»</p>
+        </div>
+        <div class="contact-card">
+          <h3 data-i18n="phone_label">Телефон</h3>
+          <p><a href="tel:+77054529356">+7 705 452-93-56</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/77054529356" target="_blank" rel="noopener" data-i18n="wa_write">Написать</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Kaspi</h3>
+          <p><a href="https://l.kaspi.kz/shop/13uBDwMmgFwrEju" target="_blank" rel="noopener" data-i18n="kaspi_shop">Магазин на Kaspi</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="logo-text">Авто<span>Кит</span></span>
+        <p class="footer-muted" data-i18n="footer_demo">Демо-версия для теста. Не является публичной офертой до публикации финальных документов.</p>
+      </div>
+      <div class="footer-links">
+        <a href="legal/oferta.html" data-i18n="nav_oferta">Оферта</a>
+        <a href="legal/privacy.html" data-i18n="nav_privacy">Конфиденциальность</a>
+        <a href="https://akit.kz" target="_blank">akit.kz</a>
+      </div>
+      <p class="copyright">© 2026 АвтоКит · ИП «Воронцов Д. С.»</p>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-head">
+      <h3 data-i18n="cart_title">Корзина</h3>
+      <button type="button" class="cart-close" id="cart-close">×</button>
+    </div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span data-i18n="cart_total">Итого</span>: <strong id="cart-total">0 ₸</strong></div>
+      <button type="button" class="btn btn-primary btn-full" id="checkout-wa" data-i18n="cart_checkout">Отправить в WhatsApp</button>
+      <p class="cart-note" data-i18n="cart_note">Заявка уходит в WhatsApp. Оплата на сайте — позже.</p>
+    </div>
+  </aside>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

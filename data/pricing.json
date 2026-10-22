@@ -1,0 +1,7 @@
+{
+  "source": "Алтын Авто price-list_20.08.2026.xlsx",
+  "markup_percent": 15,
+  "note": "Цена на сайте = закупочная * (1 + markup_percent/100). Меняйте markup в scripts/import_altyn.py и перезапускайте.",
+  "total_imported": 70862,
+  "demo_count": 250
+}
